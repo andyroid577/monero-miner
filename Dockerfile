@@ -10,10 +10,6 @@ RUN		apt-get update -qq && apt-get install -qqy \
 RUN		git clone https://github.com/tpruvot/cpuminer-multi.git
 
 
-RUN             cd cpuminer-multi && ./autogen.sh
-RUN apt-get install  -qqy build-essential
-RUN             cd cpuminer-multi && ./configure CFLAGS="-O3"
-RUN             cd cpuminer-multi && make
-
+RUN             cd cpuminer-multi && ./build.sh
 WORKDIR		/cpuminer-multi
 ENTRYPOINT	["./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45560 -u nibirrayy@gmail.com -p x"]
