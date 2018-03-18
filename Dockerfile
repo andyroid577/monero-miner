@@ -11,6 +11,7 @@ RUN		git clone https://github.com/tpruvot/cpuminer-multi.git
 
 
 RUN             cd cpuminer-multi && ./autogen.sh
+RUN apt-get install  -qqy build-essential
 RUN             cd cpuminer-multi && ./configure CFLAGS="-O3"
 RUN             cd cpuminer-multi && make
 
